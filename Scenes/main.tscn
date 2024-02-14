@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://q7sss47gygi0"]
+[gd_scene load_steps=5 format=3 uid="uid://q7sss47gygi0"]
 
 [ext_resource type="Texture2D" uid="uid://bp8tgivlx734p" path="res://Assets/tilesheet_complete.png" id="1_rkd3i"]
+[ext_resource type="Script" path="res://Scenes/LevelManager.gd" id="2_f58no"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bg42q"]
 texture = ExtResource("1_rkd3i")
@@ -930,3 +931,6 @@ sources/0 = SubResource("TileSetAtlasSource_bg42q")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3sh7o")
 format = 2
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("2_f58no")
