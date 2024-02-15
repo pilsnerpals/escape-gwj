@@ -934,3 +934,7 @@ format = 2
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("2_f58no")
+
+[node name="Levels" type="Node" parent="."]
+
+[node name="Level1" type="Node2D" parent="Levels"]

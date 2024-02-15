@@ -1,16 +1,30 @@
 extends Node
+## world container that holds global vars between individual levels (worlds within worlds)
+##
+## gets screen_size from settings
+## observes/creates/unloads levels based on current level_number
+## emits/rcvs is_switching_level for transitional animations/etc
+## @tutorial(TitleHere):		https://theurl.com
+## @experimental or ## @deprecated
+
+# can set up do:while for loading/transitional elements (death/reset/menu to level/etc)
+# I have yet to review gdscript syntax
+# another pattern would be to create a container that holds 'global' vars between levels (worlds within worlds)
 
 var level_number = 1
 var screen_size = Vector2()
 var is_switching_level = false
 
 func _ready():
-	# not found in base, can fix later- get_viewport_rect().size
+	## sets screen size and loads current level
+	##
+	
+	##
 	screen_size = 100
 	load_level(level_number)
 
 func load_level(level):
-	var level_path = "res://Level" + str(level) + ".tscn"
+	var level_path = "res://Scenes/Level" + str(level) + ".tscn"
 	var level_scene = load(level_path)
 	var level_instance = level_scene.instantiate()
 	add_child(level_instance)
@@ -22,14 +36,15 @@ func switch_level():
 
 	is_switching_level = true
 	level_number += 1
+	#what
+	#if level_number > 2:
+		#level_number = 1
 
-	if level_number > 2:
-		level_number = 1
-
-	# Assuming the player node is named "Player"
+	# fetch player node "Player"
 	var player = get_node("Node2D/Player")
-
+	
 	if player:
+		# create position variable
 		var player_position = player.position
 
 		if player_position.x < 0:
@@ -41,13 +56,12 @@ func switch_level():
 		elif player_position.y > screen_size.y:
 			player.position.y = 0
 
-	#unload old
+	#unload old 2DNode level
 	get_node("Node2D").queue_free()
 	load_level(level_number)
 
 func _process(delta):
 	# Check if the player crosses the screen boundary
-	# Assuming the player node is named "Player"
 	var player = get_node("Node2D/Player")
 
 	if player:
