@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy2ktv3gslcip"]
+
+[ext_resource type="Texture2D" uid="uid://b0dhdri6pn3ki" path="res://Assets/icon.svg" id="1_n15nj"]
+[ext_resource type="Script" path="res://Scenes/Enemies/coworker.gd" id="1_tnv07"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0er7a"]
+size = Vector2(36, 80)
+
+[node name="CoWorker" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_tnv07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0er7a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.285156, 0.632813)
+texture = ExtResource("1_n15nj")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="left" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(-150, 0)
+
+[node name="leftup" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(-106, -106)
+
+[node name="up" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(0, -150)
+
+[node name="rightup" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(106, -106)
+
+[node name="right" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(150, 0)
