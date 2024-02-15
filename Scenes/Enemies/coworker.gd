@@ -55,6 +55,6 @@ func _physics_process(delta):
 		#pause for some time maybe then pick a new target(how to deal with this)
 		wander_target = get_wander_target()
 	else:
-		velocity.x = wander_target.y * dir		
+		velocity.x = wander_target.y * dir
 	prevDir = dir
 	move_and_slide()
