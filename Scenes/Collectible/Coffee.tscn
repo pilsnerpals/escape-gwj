@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://1hwv4xca62y5"]
+[gd_scene load_steps=7 format=3 uid="uid://1hwv4xca62y5"]
 
 [ext_resource type="Texture2D" uid="uid://bx3abfvamb44" path="res://Assets/coffee.png" id="1_itlqc"]
+[ext_resource type="Script" path="res://Scenes/Collectible/Coffee.gd" id="1_myn77"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5jdn"]
 atlas = ExtResource("1_itlqc")
@@ -29,6 +30,7 @@ radius = 24.0208
 
 [node name="Coffee" type="Area2D"]
 collision_layer = 8
+script = ExtResource("1_myn77")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -2)
@@ -37,3 +39,5 @@ frame_progress = 0.499144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_klyql")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
