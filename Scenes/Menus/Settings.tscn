@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://pheov3qdl0i1"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Settings.gd" id="1_pyshn"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pyshn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 25.0
+offset_right = 650.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 32
+text = "Settings Page"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 583.0
+offset_right = 665.0
+offset_bottom = 620.0
+text = "Back"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

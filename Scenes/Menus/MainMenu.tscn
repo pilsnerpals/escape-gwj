@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://o033dat827nm"]
 
-[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_c2el7"]
+[ext_resource type="Script" path="res://Scenes/Menus/MainMenu.gd" id="1_c2el7"]
 [ext_resource type="Texture2D" uid="uid://ch0r1ylcngiwv" path="res://Assets/main_menu.png" id="1_xu1s8"]
 
 [node name="MainMenu" type="Control"]
@@ -15,15 +15,23 @@ script = ExtResource("1_c2el7")
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1154.0
-offset_bottom = 645.0
+offset_bottom = 648.0
 texture = ExtResource("1_xu1s8")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 139.0
-offset_top = 550.0
-offset_right = 1022.0
-offset_bottom = 628.0
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 1.0
+anchor_right = 0.504
+anchor_bottom = 1.0
+offset_left = -441.608
+offset_top = -98.0
+offset_right = 441.392
+offset_bottom = -20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 3
 
 [node name="play" type="Button" parent="GridContainer"]
