@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://o033dat827nm"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/MainMenu.gd" id="1_c2el7"]
+[ext_resource type="Texture2D" uid="uid://ch0r1ylcngiwv" path="res://Assets/main_menu.png" id="1_xu1s8"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c2el7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 648.0
+texture = ExtResource("1_xu1s8")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 1.0
+anchor_right = 0.504
+anchor_bottom = 1.0
+offset_left = -441.608
+offset_top = -98.0
+offset_right = 441.392
+offset_bottom = -20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="play" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Play"
+
+[node name="settings" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Settings"
+
+[node name="exit" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Exit"
+
+[connection signal="pressed" from="GridContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GridContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="GridContainer/exit" to="." method="_on_exit_pressed"]

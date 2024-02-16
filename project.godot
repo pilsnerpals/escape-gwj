@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Escape"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Assets/icon.svg"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
