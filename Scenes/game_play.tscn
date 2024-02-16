@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://kru6guy3hudv"]
+[gd_scene load_steps=8 format=3 uid="uid://ca7li0etwjdw0"]
 
+[ext_resource type="Script" path="res://Scenes/game_play.gd" id="1_5u42b"]
 [ext_resource type="PackedScene" uid="uid://dy3rbt3i2iv2e" path="res://Scenes/Player/Player.tscn" id="1_rl3dm"]
 [ext_resource type="Texture2D" uid="uid://xgmvbbg2dkgw" path="res://Assets/platformer-tileset-template.png" id="2_6jttj"]
+[ext_resource type="PackedScene" uid="uid://1hwv4xca62y5" path="res://Scenes/Collectible/Coffee.tscn" id="3_nma78"]
+[ext_resource type="PackedScene" uid="uid://dy2ktv3gslcip" path="res://Scenes/Enemies/coworker.tscn" id="4_woskv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgbn6"]
 texture = ExtResource("2_6jttj")
@@ -1457,6 +1460,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vgbn6")
 
 [node name="GamePlay" type="Node"]
+script = ExtResource("1_5u42b")
 
 [node name="Player" parent="." instance=ExtResource("1_rl3dm")]
 position = Vector2(57, 721)
@@ -1479,3 +1483,32 @@ drag_top_margin = 0.5
 drag_right_margin = 0.7
 drag_bottom_margin = 0.5
 editor_draw_drag_margin = true
+
+[node name="Collectables" type="Node" parent="."]
+
+[node name="Coffee" parent="Collectables" instance=ExtResource("3_nma78")]
+position = Vector2(466, 724)
+
+[node name="Coffee2" parent="Collectables" instance=ExtResource("3_nma78")]
+position = Vector2(592, 719)
+
+[node name="Coffee3" parent="Collectables" instance=ExtResource("3_nma78")]
+position = Vector2(768, 719)
+
+[node name="Coffee4" parent="Collectables" instance=ExtResource("3_nma78")]
+position = Vector2(954, 726)
+
+[node name="Coffee5" parent="Collectables" instance=ExtResource("3_nma78")]
+position = Vector2(1122, 722)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="CoWorker" parent="Enemies" instance=ExtResource("4_woskv")]
+position = Vector2(1958, 749)
+
+[connection signal="collected" from="Collectables/Coffee" to="Player" method="_on_coffee_collected"]
+[connection signal="collected" from="Collectables/Coffee2" to="Player" method="_on_coffee_collected"]
+[connection signal="collected" from="Collectables/Coffee3" to="Player" method="_on_coffee_collected"]
+[connection signal="collected" from="Collectables/Coffee4" to="Player" method="_on_coffee_collected"]
+[connection signal="collected" from="Collectables/Coffee5" to="Player" method="_on_coffee_collected"]
+[connection signal="player_hit" from="Enemies/CoWorker" to="Player" method="_on_co_worker_player_hit"]

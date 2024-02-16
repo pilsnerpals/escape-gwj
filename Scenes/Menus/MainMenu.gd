@@ -10,6 +10,8 @@ func _process(delta):
 
 func _on_play_pressed():
 	#load in first level
+	get_tree().change_scene_to_file("res://Scenes/game_play.tscn")
+	
 	pass # Replace with function body.
 
 
