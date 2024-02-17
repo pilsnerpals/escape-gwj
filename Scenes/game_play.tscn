@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://kru6guy3hudv"]
+[gd_scene load_steps=12 format=3 uid="uid://ca7li0etwjdw0"]
 
 [ext_resource type="PackedScene" uid="uid://dy3rbt3i2iv2e" path="res://Scenes/Player/Player.tscn" id="1_rl3dm"]
 [ext_resource type="Script" path="res://Scenes/game_play.gd" id="1_ymad7"]
 [ext_resource type="Texture2D" uid="uid://xgmvbbg2dkgw" path="res://Assets/platformer-tileset-template.png" id="2_6jttj"]
+[ext_resource type="Texture2D" uid="uid://baq6k86pdgrg4" path="res://Assets/sky.png" id="2_y3cbb"]
 [ext_resource type="AudioStream" uid="uid://ew6juit8ml2c" path="res://Assets/Sound/BGM/BigCarTheft.mp3" id="3_5o3fs"]
 [ext_resource type="PackedScene" uid="uid://1hwv4xca62y5" path="res://Scenes/Collectible/Coffee.tscn" id="3_nma78"]
+[ext_resource type="Texture2D" uid="uid://dc811qfn1p8b8" path="res://Assets/city.png" id="3_t8kns"]
+[ext_resource type="Texture2D" uid="uid://blnuyn34hixvr" path="res://Assets/Office_1.png" id="4_jqchh"]
 [ext_resource type="PackedScene" uid="uid://dy2ktv3gslcip" path="res://Scenes/Enemies/coworker.tscn" id="4_woskv"]
 [ext_resource type="AudioStream" uid="uid://d3n80kk2ls6i7" path="res://Assets/Sound/BGM/Don'tStop.mp3" id="5_mk8rm"]
 [ext_resource type="PackedScene" uid="uid://dxtqedism2nlo" path="res://Scenes/Enemies/Boss.tscn" id="6_6lljv"]
@@ -1465,6 +1468,34 @@ sources/0 = SubResource("TileSetAtlasSource_vgbn6")
 
 [node name="GamePlay" type="Node"]
 script = ExtResource("1_ymad7")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(1200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture = ExtResource("2_y3cbb")
+centered = false
+
+[node name="City" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/City"]
+texture = ExtResource("3_t8kns")
+centered = false
+
+[node name="OfficeWall" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_mirroring = Vector2(1200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/OfficeWall"]
+texture = ExtResource("4_jqchh")
+centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_rl3dm")]
 position = Vector2(57, 721)

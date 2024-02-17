@@ -9,8 +9,6 @@ func _ready():
 	$bgm1.play()
 	get_tree().call_group("coworkers", "init")
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
