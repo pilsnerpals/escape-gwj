@@ -13,6 +13,8 @@ var direction: int
 var wander_target: Vector2
 var prevDir: int = 0
 var velocity: Vector2
+@onready var taunts = [$taunt1, $taunt2, $taunt3, $taunt4, $taunt6, $taunt7]
+@onready var rare_taunts = [$rare_taunt1]
 
 func init():
 	spawnPos = position
@@ -64,4 +66,13 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	#hit player
+	$damage.play()
 	player_hit.emit()
+
+
+func _on_taunt_timer_timeout():
+	#RNG 10% chance to play a rare taunt, otherwise pick a random taunt
+	if randi_range(1,10) != 10:
+		taunts[randi_range(0,taunts.size()-1)].play()
+	else:
+		rare_taunts[randi_range(0,rare_taunts.size()-1)].play()

@@ -24,5 +24,3 @@ func _on_bgm_2_finished():
 
 func _on_bgm_3_finished():
 	$bgm1.play()
-
-

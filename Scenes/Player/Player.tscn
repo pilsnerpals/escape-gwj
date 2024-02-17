@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dy3rbt3i2iv2e"]
+[gd_scene load_steps=50 format=3 uid="uid://dy3rbt3i2iv2e"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_djsqf"]
 [ext_resource type="Texture2D" uid="uid://cpr61sg5c4tqx" path="res://Assets/Player/_spritesheet_IDLE.png" id="2_yxqul"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://vkwcxukd43ji" path="res://Assets/Sound/Collectibles/coffee1.wav" id="6_cf840"]
 [ext_resource type="AudioStream" uid="uid://bq1dys71y8qnu" path="res://Assets/Sound/Collectibles/coffee2.wav" id="7_v5c13"]
 [ext_resource type="AudioStream" uid="uid://60gyg8ld61wi" path="res://Assets/Sound/Collectibles/coffee3.wav" id="8_6ahnk"]
+[ext_resource type="AudioStream" uid="uid://dqd5ro4ljgfqi" path="res://Assets/Sound/Collectibles/jump.wav" id="9_4oodh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wgdo8"]
 radius = 26.0
@@ -303,6 +304,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 17
 script = ExtResource("1_djsqf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -335,3 +337,6 @@ stream = ExtResource("7_v5c13")
 
 [node name="coffee3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_6ahnk")
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4oodh")
