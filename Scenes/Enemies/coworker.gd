@@ -1,19 +1,21 @@
-extends CharacterBody2D
+extends Area2D
 
-const MAX_SPEED = 300.0
-const MIN_SPEED = 50.0
-const WANDER_MAX_DISTANCE = 400
-const WANDER_MIN_DISTANCE = 400
+signal player_hit
 
-var SPEED = 300.0
+const MAX_SPEED: float = 300.0
+const MIN_SPEED: float = 50.0
+const WANDER_MAX_DISTANCE: float = 400
+const WANDER_MIN_DISTANCE: float = 400
+
+var SPEED: float = 300.0
 var spawnPos: Vector2
 var direction: int
 var wander_target: Vector2
 var prevDir: int = 0
+var velocity: Vector2
 
-func init(_spawnPos: Vector2):
-	spawnPos = _spawnPos
-	position = _spawnPos
+func init():
+	spawnPos = position
 	wander_target = get_wander_target()
 	pass
 
@@ -32,10 +34,11 @@ func chase():
 	pass
 
 func _physics_process(delta):
+	
 	#if we hit a wall pick a new target
-	if is_on_wall():
-		print("hit a wall")
-		wander_target = get_wander_target()
+	#if is_on_wall():
+	#	print("hit a wall")
+	#	wander_target = get_wander_target()
 	
 	var distance_from_spawn = position.x - spawnPos.x
 	  
@@ -57,4 +60,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = wander_target.y * dir
 	prevDir = dir
-	move_and_slide()
+	position += velocity * delta
+
+func _on_body_entered(body):
+	#hit player
+	player_hit.emit()

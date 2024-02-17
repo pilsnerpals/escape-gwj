@@ -6,12 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0er7a"]
 size = Vector2(36, 80)
 
-[node name="CoWorker" type="CharacterBody2D"]
+[node name="CoWorker" type="Area2D" groups=["coworkers"]]
 collision_layer = 4
 script = ExtResource("1_tnv07")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_0er7a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.285156, 0.632813)
@@ -33,3 +30,8 @@ target_position = Vector2(106, -106)
 
 [node name="right" type="RayCast2D" parent="Raycasts"]
 target_position = Vector2(150, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0er7a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

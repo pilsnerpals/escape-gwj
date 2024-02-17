@@ -1,19 +1,25 @@
 extends CharacterBody2D
 
 
-var max_speed = 300.0
-var jump_velocity = -200.0
-var jump_height = -400.0
-var accel = 200
-var friction = 30
+@export var speed_increase = 60.0
+@export var base_speed = 300.0
+@export var max_speed = 300.0
+@export var jump_velocity = -200.0
+@export var jump_height = -400.0
+@export var accel = 200
+@export var friction = 30
 
 @onready var playerSprite = $AnimatedSprite2D
+@onready var speedDebug = $"SpeedDebug"
+@onready var velDebug = $"VelocityDebug"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
 func _physics_process(delta):
+	speedDebug.text = "speed: %s" % max_speed
+	velDebug.text = "vel: %s" % velocity.x
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -41,3 +47,18 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, friction)
 
 	move_and_slide()
+
+
+func _on_coffee_collected():
+	print("got a coffe speeding up")
+	max_speed += speed_increase
+	pass # Replace with function body.
+
+
+func _on_co_worker_player_hit():
+	max_speed = base_speed
+	pass # Replace with function body.
+
+func _on_boss_player_hit():
+	get_tree().change_scene_to_file("res://Scenes/Menus/GameOver.tscn")
+	pass # Replace with function body.
