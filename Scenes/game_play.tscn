@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://kru6guy3hudv"]
+[gd_scene load_steps=9 format=3 uid="uid://kru6guy3hudv"]
 
 [ext_resource type="PackedScene" uid="uid://dy3rbt3i2iv2e" path="res://Scenes/Player/Player.tscn" id="1_rl3dm"]
+[ext_resource type="Script" path="res://Scenes/game_play.gd" id="1_ymad7"]
 [ext_resource type="Texture2D" uid="uid://xgmvbbg2dkgw" path="res://Assets/platformer-tileset-template.png" id="2_6jttj"]
+[ext_resource type="AudioStream" uid="uid://ew6juit8ml2c" path="res://Assets/Sound/BGM/BigCarTheft.mp3" id="3_5o3fs"]
+[ext_resource type="AudioStream" uid="uid://d3n80kk2ls6i7" path="res://Assets/Sound/BGM/Don'tStop.mp3" id="5_mk8rm"]
+[ext_resource type="AudioStream" uid="uid://bsxqi5i8g60ck" path="res://Assets/Sound/BGM/ThoughtBot.mp3" id="6_34u7a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgbn6"]
 texture = ExtResource("2_6jttj")
@@ -1457,6 +1461,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vgbn6")
 
 [node name="GamePlay" type="Node"]
+script = ExtResource("1_ymad7")
 
 [node name="Player" parent="." instance=ExtResource("1_rl3dm")]
 position = Vector2(57, 721)
@@ -1479,3 +1484,19 @@ drag_top_margin = 0.5
 drag_right_margin = 0.7
 drag_bottom_margin = 0.5
 editor_draw_drag_margin = true
+
+[node name="bgm1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5o3fs")
+volume_db = -22.0
+
+[node name="bgm2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mk8rm")
+volume_db = -22.0
+
+[node name="bgm3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_34u7a")
+volume_db = -10.0
+
+[connection signal="finished" from="bgm1" to="." method="_on_bgm_1_finished"]
+[connection signal="finished" from="bgm2" to="." method="_on_bgm_2_finished"]
+[connection signal="finished" from="bgm3" to="." method="_on_bgm_3_finished"]
