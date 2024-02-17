@@ -1,10 +1,13 @@
-[gd_scene load_steps=46 format=3 uid="uid://dy3rbt3i2iv2e"]
+[gd_scene load_steps=49 format=3 uid="uid://dy3rbt3i2iv2e"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_djsqf"]
 [ext_resource type="Texture2D" uid="uid://cpr61sg5c4tqx" path="res://Assets/Player/_spritesheet_IDLE.png" id="2_yxqul"]
 [ext_resource type="Texture2D" uid="uid://db12qbnr4t2pr" path="res://Assets/Player/_spritesheet_JUMP.png" id="3_ifrn2"]
 [ext_resource type="Texture2D" uid="uid://kg1b6ywteupd" path="res://Assets/Player/_spritesheet_RUN.png" id="4_y0hop"]
 [ext_resource type="Texture2D" uid="uid://ktobk5pfkygf" path="res://Assets/Player/_spritesheet_WALK.png" id="5_kqnfv"]
+[ext_resource type="AudioStream" uid="uid://vkwcxukd43ji" path="res://Assets/Sound/Collectibles/coffee1.wav" id="6_cf840"]
+[ext_resource type="AudioStream" uid="uid://bq1dys71y8qnu" path="res://Assets/Sound/Collectibles/coffee2.wav" id="7_v5c13"]
+[ext_resource type="AudioStream" uid="uid://60gyg8ld61wi" path="res://Assets/Sound/Collectibles/coffee3.wav" id="8_6ahnk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wgdo8"]
 radius = 26.0
@@ -323,3 +326,12 @@ offset_top = -122.0
 offset_right = 48.0
 offset_bottom = -99.0
 text = "v"
+
+[node name="coffee1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cf840")
+
+[node name="coffee2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_v5c13")
+
+[node name="coffee3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_6ahnk")
