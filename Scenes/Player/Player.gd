@@ -58,3 +58,7 @@ func _on_coffee_collected():
 func _on_co_worker_player_hit():
 	max_speed = base_speed
 	pass # Replace with function body.
+
+func _on_boss_player_hit():
+	get_tree().change_scene_to_file("res://Scenes/Menus/GameOver.tscn")
+	pass # Replace with function body.

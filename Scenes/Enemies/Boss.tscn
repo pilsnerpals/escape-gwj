@@ -6,9 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cufwp"]
 size = Vector2(222, 738)
 
-[node name="Boss" type="RigidBody2D"]
+[node name="Boss" type="Area2D"]
 collision_layer = 2
-gravity_scale = 0.0
 script = ExtResource("1_br36i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,3 +18,5 @@ texture = ExtResource("2_1pphp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(27, 307)
 shape = SubResource("RectangleShape2D_cufwp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

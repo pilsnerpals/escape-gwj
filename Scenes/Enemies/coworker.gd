@@ -2,12 +2,12 @@ extends Area2D
 
 signal player_hit
 
-const MAX_SPEED = 300.0
-const MIN_SPEED = 50.0
-const WANDER_MAX_DISTANCE = 400
-const WANDER_MIN_DISTANCE = 400
+const MAX_SPEED: float = 300.0
+const MIN_SPEED: float = 50.0
+const WANDER_MAX_DISTANCE: float = 400
+const WANDER_MIN_DISTANCE: float = 400
 
-var SPEED = 300.0
+var SPEED: float = 300.0
 var spawnPos: Vector2
 var direction: int
 var wander_target: Vector2
@@ -63,6 +63,5 @@ func _physics_process(delta):
 	position += velocity * delta
 
 func _on_body_entered(body):
-		#player got hit
+	#hit player
 	player_hit.emit()
-	pass # Replace with function body.
