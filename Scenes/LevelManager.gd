@@ -26,7 +26,7 @@ func load_level(level):
 	is_switching_level = false
 	
 	var player = get_node("Node2D/Player")
-	var entry_pos = Vector2(100,100)
+	var entry_pos = Vector2(0,0)
 
 func switch_level():
 	if is_switching_level:
@@ -50,5 +50,5 @@ func _process(delta):
 		var player_position = player.position
 		var level_complete = player_position.x > 500
 
-		if level_complete
+		if level_complete:
 			switch_level()
