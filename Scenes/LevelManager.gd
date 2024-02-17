@@ -11,6 +11,7 @@ extends Node
 var level_number = 1
 var screen_size = Vector2()
 var is_switching_level = false
+@onready var player = get_node("Node2D/Player")
 
 func _ready():
 	## sets screen size and loads current level
@@ -25,7 +26,6 @@ func load_level(level):
 	add_child(level_instance)
 	is_switching_level = false
 	
-	var player = get_node("Node2D/Player")
 	var entry_pos = Vector2(0,0)
 
 func switch_level():
@@ -35,16 +35,13 @@ func switch_level():
 	is_switching_level = true
 	level_number += 1
 
-	# fetch player node "Player"
-	var player = get_node("Node2D/Player")
-	
 	#unload old 2DNode level
+	#show_transition_screen();
 	get_node("Node2D").queue_free()
 	load_level(level_number)
 
 func _process(delta):
 	# Check if the player crosses the screen boundary
-	var player = get_node("Node2D/Player")
 
 	if player:
 		var player_position = player.position
