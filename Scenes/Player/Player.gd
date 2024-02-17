@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var playerSprite = $AnimatedSprite2D
 @onready var speedDebug = $"SpeedDebug"
 @onready var velDebug = $"VelocityDebug"
+@onready var coffees = [$coffee1, $coffee2, $coffee3]
+@onready var coffee_index = randi_range(0,coffees.size()-1)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -51,6 +53,12 @@ func _physics_process(delta):
 
 func _on_coffee_collected():
 	print("got a coffe speeding up")
+	var newCoffeeIndex = randi_range(0,coffees.size()-1)
+	while newCoffeeIndex == coffee_index:
+		newCoffeeIndex = randi_range(0,coffees.size()-1)
+	coffee_index = newCoffeeIndex
+	print(coffee_index)
+	coffees[coffee_index].play()
 	max_speed += speed_increase
 	pass # Replace with function body.
 
