@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var speedDebug = $"SpeedDebug"
 @onready var velDebug = $"VelocityDebug"
 @onready var coffees = [$coffee1, $coffee2, $coffee3]
+@onready var jcd_timer = $jumpsoundCD
 @onready var coffee_index = randi_range(0,coffees.size()-1)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -29,7 +30,9 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		velocity.y = jump_height
-		$jump.play()
+		if jcd_timer.is_stopped():
+			$jump.play()
+			jcd_timer.start()
 		playerSprite.animation = "jump"
 
 	# Get the input direction and handle the movement/deceleration.

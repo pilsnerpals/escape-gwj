@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://wuwrueoi0hxo" path="res://Assets/Sound/Enemies/Boss2.mp3" id="4_x555f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cufwp"]
-size = Vector2(296, 576)
+size = Vector2(435, 872)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xfb62"]
 atlas = ExtResource("2_2nv5h")
@@ -43,10 +43,11 @@ script = ExtResource("1_br36i")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-9, 2)
+position = Vector2(-13.5, 5)
 shape = SubResource("RectangleShape2D_cufwp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1am06")
 autoplay = "default"
 frame_progress = 0.450854
@@ -70,7 +71,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="tauntTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 13.0
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
