@@ -144,3 +144,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Actions/GridContainer/Move Right Binding" to="." method="_on_move_right_binding_pressed"]
 [connection signal="pressed" from="Actions/GridContainer/Move Left Binding" to="." method="_on_move_left_binding_pressed"]
 [connection signal="pressed" from="Actions/GridContainer/Jump Binding" to="." method="_on_jump_binding_pressed"]
+[connection signal="window_input" from="Popup" to="." method="_on_popup_window_input"]
