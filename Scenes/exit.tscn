@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmxcks0jusqyx"]
+
+[ext_resource type="Texture2D" uid="uid://uvefioi1x3tw" path="res://Assets/stairs.png" id="1_01g5n"]
+[ext_resource type="Script" path="res://Scenes/exit.gd" id="1_y4qu5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lho4y"]
+size = Vector2(150, 153)
+
+[node name="Exit" type="Area2D" groups=["Exit"]]
+position = Vector2(5831, 700)
+collision_layer = 16
+script = ExtResource("1_y4qu5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 3.5)
+shape = SubResource("RectangleShape2D_lho4y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(5, 5)
+texture = ExtResource("1_01g5n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
