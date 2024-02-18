@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://kru6guy3hudv"]
+[gd_scene load_steps=8 format=3 uid="uid://ca7li0etwjdw0"]
 
 [ext_resource type="PackedScene" uid="uid://dy3rbt3i2iv2e" path="res://Scenes/Player/Player.tscn" id="1_rl3dm"]
 [ext_resource type="Script" path="res://Scenes/game_play.gd" id="1_ymad7"]
 [ext_resource type="AudioStream" uid="uid://ew6juit8ml2c" path="res://Assets/Sound/BGM/BigCarTheft.mp3" id="3_5o3fs"]
 [ext_resource type="AudioStream" uid="uid://d3n80kk2ls6i7" path="res://Assets/Sound/BGM/Don'tStop.mp3" id="5_mk8rm"]
 [ext_resource type="AudioStream" uid="uid://bsxqi5i8g60ck" path="res://Assets/Sound/BGM/ThoughtBot.mp3" id="6_34u7a"]
-[ext_resource type="PackedScene" uid="uid://bfbgrjoikrs2j" path="res://Scenes/Level0.tscn" id="6_jxg7l"]
+[ext_resource type="PackedScene" uid="uid://c215ytjk6ucnr" path="res://Scenes/Level0.tscn" id="6_jxg7l"]
+[ext_resource type="PackedScene" uid="uid://46bnmi8lm3xn" path="res://Scenes/progress_bar.tscn" id="7_poj0y"]
 
 [node name="GamePlay" type="Node"]
 script = ExtResource("1_ymad7")
@@ -41,6 +42,17 @@ stream = ExtResource("6_34u7a")
 volume_db = -10.0
 
 [node name="Level0" parent="." instance=ExtResource("6_jxg7l")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("7_poj0y")]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 38.0
+offset_bottom = 38.0
+grow_horizontal = 2
 
 [connection signal="finished" from="bgm1" to="." method="_on_bgm_1_finished"]
 [connection signal="finished" from="bgm2" to="." method="_on_bgm_2_finished"]

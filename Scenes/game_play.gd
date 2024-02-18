@@ -16,9 +16,14 @@ func _ready():
 		c.collected.connect(%Player._on_coffee_collected)
 	for w in coworkers:
 		w.player_hit.connect(%Player._on_co_worker_player_hit)
+		
+	# hard coded for level 0 need to figure out how to deal with this a better way
+	%ProgressBar.setMaxLength(5920) 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	%ProgressBar.setPlayerPos(%Player.position.x)
+	#%ProgressBar.setBossPos(%Boss.position.x)
 	pass
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfbgrjoikrs2j"]
+[gd_scene load_steps=11 format=3 uid="uid://c215ytjk6ucnr"]
 
 [ext_resource type="Texture2D" uid="uid://xgmvbbg2dkgw" path="res://Assets/platformer-tileset-template.png" id="1_ryuw3"]
 [ext_resource type="Texture2D" uid="uid://uvefioi1x3tw" path="res://Assets/stairs.png" id="2_p0f3l"]
@@ -1477,7 +1477,7 @@ offset_top = 300.0
 offset_right = 790.0
 offset_bottom = 387.0
 theme_override_font_sizes/font_size = 30
-text = "Left / Right or A / D to move
+text = "A / D to move
 Spacebar to Jump!"
 horizontal_alignment = 1
 
