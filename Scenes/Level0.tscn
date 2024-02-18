@@ -1474,7 +1474,8 @@ offset_top = 300.0
 offset_right = 790.0
 offset_bottom = 387.0
 theme_override_font_sizes/font_size = 30
-text = "A / D to move
+text = "Run away from your boss!
+A / D to move
 Spacebar to Jump!"
 horizontal_alignment = 1
 
@@ -1484,8 +1485,7 @@ offset_top = 283.0
 offset_right = 3171.0
 offset_bottom = 415.0
 theme_override_font_sizes/font_size = 30
-text = "Run away from your boss!
-Don't get slowed down by coworkers!
+text = "Don't get slowed down by coworkers!
 Make it to the stairs to escape!"
 
 [node name="Spawn Location" type="Node2D" parent="."]
