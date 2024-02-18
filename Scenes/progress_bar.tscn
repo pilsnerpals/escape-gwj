@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://46bnmi8lm3xn"]
+
+[ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="1_t8xpm"]
+
+[node name="ProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_t8xpm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -14.5
+offset_right = 200.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.223529, 0.223529, 0.223529, 0.458824)
+
+[node name="PlayerTracker" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -200.0
+offset_top = -20.0
+offset_right = -190.0
+offset_bottom = 20.0
+color = Color(0, 0.776471, 0.282353, 1)
+
+[node name="BossTracker" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -20.0
+offset_right = -190.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.631373, 0, 0.0745098, 1)
