@@ -54,6 +54,12 @@ offset_top = 38.0
 offset_bottom = 38.0
 grow_horizontal = 2
 
+[node name="LevelSwitchTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
 [connection signal="finished" from="bgm1" to="." method="_on_bgm_1_finished"]
 [connection signal="finished" from="bgm2" to="." method="_on_bgm_2_finished"]
 [connection signal="finished" from="bgm3" to="." method="_on_bgm_3_finished"]
+[connection signal="timeout" from="LevelSwitchTimer" to="." method="_on_level_switch_timer_timeout"]
