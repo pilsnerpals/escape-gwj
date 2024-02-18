@@ -28,7 +28,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_klyql"]
 radius = 24.0208
 
-[node name="Coffee" type="Area2D"]
+[node name="Coffee" type="Area2D" groups=["Coffees"]]
 collision_layer = 8
 script = ExtResource("1_myn77")
 

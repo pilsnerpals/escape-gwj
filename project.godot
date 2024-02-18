@@ -52,6 +52,7 @@ move_jump={
 2d_physics/layer_2="Boss"
 2d_physics/layer_3="Coworkers"
 2d_physics/layer_4="Collectables"
+2d_physics/layer_5="Level"
 
 [rendering]
 

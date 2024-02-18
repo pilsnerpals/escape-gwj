@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy2ktv3gslcip"]
+[gd_scene load_steps=11 format=3 uid="uid://dy2ktv3gslcip"]
 
 [ext_resource type="Texture2D" uid="uid://b0dhdri6pn3ki" path="res://Assets/icon.svg" id="1_n15nj"]
 [ext_resource type="Script" path="res://Scenes/Enemies/coworker.gd" id="1_tnv07"]
-[ext_resource type="AudioStream" uid="uid://d5jopetcjxrv" path="res://Assets/Sound/Enemies/oof.wav" id="3_ufviy"]
 [ext_resource type="AudioStream" uid="uid://dy4ygvn0pnd4y" path="res://Assets/Sound/Enemies/boss_look.wav" id="4_r4nkg"]
 [ext_resource type="AudioStream" uid="uid://b6fsklcsiuq07" path="res://Assets/Sound/Enemies/girlscout.wav" id="5_ymoij"]
 [ext_resource type="AudioStream" uid="uid://c42q71gs8h83m" path="res://Assets/Sound/Enemies/hardly_workin.wav" id="6_8o8iw"]
@@ -21,6 +20,7 @@ script = ExtResource("1_tnv07")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.285156, 0.632813)
 texture = ExtResource("1_n15nj")
+metadata/_edit_group_ = true
 
 [node name="Raycasts" type="Node2D" parent="."]
 
@@ -41,9 +41,6 @@ target_position = Vector2(150, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0er7a")
-
-[node name="damage" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ufviy")
 
 [node name="taunt1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_r4nkg")
