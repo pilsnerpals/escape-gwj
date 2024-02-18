@@ -43,19 +43,22 @@ func _onExitReached(level: int):
 			
 			currentLevel += 1;
 			#load new scene
-			var level_path = "res://Scenes/Level" + str(currentLevel) + ".tscn"
+			var level_path = "res://Scenes/level" + str(currentLevel) + ".tscn"
 			var level_scene = load(level_path)
 			var level_instance = level_scene.instantiate()
 			#this is temporary
 			
-			add_child(level_instance)
-			#unload old scene
-			currentLevelScene.queue_free()
-			currentLevelScene = level_scene
-			handleLevelLoad(currentLevel)
+			call_deferred("loadAndUnload", level_instance, level_scene)
 		else:
 			get_tree().change_scene_to_file("res://Scenes/Menus/GameComplete.tscn")
 			pass
+
+func loadAndUnload(level_instance, level_scene):
+	add_child(level_instance)
+	#unload old scene
+	currentLevelScene.queue_free()
+	currentLevelScene = level_scene
+	handleLevelLoad(currentLevel)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
