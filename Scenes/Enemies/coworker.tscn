@@ -63,9 +63,9 @@ stream = ExtResource("9_xvntf")
 [node name="taunt7" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_5q8gm")
 
-[node name="tauntTimer" type="Timer" parent="."]
+[node name="tauntCD" type="Timer" parent="."]
 wait_time = 6.0
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="tauntTimer" to="." method="_on_taunt_timer_timeout"]
+[connection signal="timeout" from="tauntCD" to="." method="_on_taunt_cd_timeout"]

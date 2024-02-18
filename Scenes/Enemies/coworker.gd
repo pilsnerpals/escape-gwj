@@ -15,6 +15,8 @@ var prevDir: int = 0
 var velocity: Vector2
 @onready var taunts = [$taunt1, $taunt2, $taunt3, $taunt4, $taunt6, $taunt7]
 @onready var rare_taunts = [$rare_taunt1]
+@onready var rays = $Raycasts.get_children()
+@onready var taunt_cd = 0
 
 func init():
 	spawnPos = position
@@ -43,7 +45,9 @@ func _physics_process(delta):
 	#	wander_target = get_wander_target()
 	
 	var distance_from_spawn = position.x - spawnPos.x
-	  
+	for r in rays:
+		if r.is_colliding():
+			play_taunt()
 	var dir = 0
 	if (wander_target.x < distance_from_spawn):
 		dir = -1
@@ -69,9 +73,18 @@ func _on_body_entered(body):
 	player_hit.emit()
 
 
-func _on_taunt_timer_timeout():
+#func _on_taunt_timer_timeout():
+func play_taunt():
 	#RNG 10% chance to play a rare taunt, otherwise pick a random taunt
-	if randi_range(1,10) != 10:
-		taunts[randi_range(0,taunts.size()-1)].play()
+	if taunt_cd == 0:
+		if randi_range(1,10) != 10:
+			taunts[randi_range(0,taunts.size()-1)].play()
+		else:
+			rare_taunts[randi_range(0,rare_taunts.size()-1)].play()
+		taunt_cd = 1
 	else:
-		rare_taunts[randi_range(0,rare_taunts.size()-1)].play()
+		pass
+
+
+func _on_taunt_cd_timeout():
+	taunt_cd = 0
