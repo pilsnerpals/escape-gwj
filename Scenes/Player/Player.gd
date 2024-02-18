@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var base_speed = 300.0
 @export var max_speed = 300.0
 @export var jump_velocity = -200.0
-@export var jump_height = -400.0
+@export var jump_height = -500.0
 @export var accel = 200
 @export var friction = 30
 
@@ -66,6 +66,7 @@ func _on_coffee_collected():
 
 func _on_co_worker_player_hit():
 	max_speed = base_speed
+	$damage.play()
 	pass # Replace with function body.
 
 func _on_boss_player_hit():

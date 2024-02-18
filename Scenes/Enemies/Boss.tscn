@@ -40,6 +40,7 @@ animations = [{
 [node name="Boss" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_br36i")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9, 2)
