@@ -1,7 +1,143 @@
-[gd_scene load_steps=3 format=3 uid="uid://o033dat827nm"]
+[gd_scene load_steps=8 format=3 uid="uid://o033dat827nm"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/MainMenu.gd" id="1_c2el7"]
 [ext_resource type="Texture2D" uid="uid://ch0r1ylcngiwv" path="res://Assets/main_menu.png" id="1_xu1s8"]
+[ext_resource type="Texture2D" uid="uid://bi5jdsfuqjflc" path="res://Assets/branding/GWJ-Full-Logo-tag-Orange2.svg" id="3_fleal"]
+[ext_resource type="Texture2D" uid="uid://glje1l2im71f" path="res://Assets/branding/pils.png" id="4_ruv71"]
+
+[sub_resource type="Animation" id="Animation_nh4jq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wildbranding:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wildbranding:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PilsnerPals:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PilsnerPals:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menu:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_41jjh"]
+resource_name = "wild"
+length = 6.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wildbranding:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 0.466516),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wildbranding:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3, 2.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.805736), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PilsnerPals:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.3, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PilsnerPals:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.8, 5, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menu:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k5s8v"]
+_data = {
+"RESET": SubResource("Animation_nh4jq"),
+"wild": SubResource("Animation_41jjh")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,13 +148,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c2el7")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k5s8v")
+}
+autoplay = "wild"
+
+[node name="Menu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
 layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 800.0
 texture = ExtResource("1_xu1s8")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="Menu"]
 custom_minimum_size = Vector2(500, 75)
 layout_mode = 1
 anchors_preset = -1
@@ -26,35 +173,113 @@ anchor_left = 0.504
 anchor_top = 1.0
 anchor_right = 0.504
 anchor_bottom = 1.0
-offset_left = -441.608
-offset_top = -98.0
-offset_right = 441.392
-offset_bottom = -20.0
+offset_left = 143.032
+offset_top = 662.0
+offset_right = 1026.03
+offset_bottom = 740.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 4
 
-[node name="play" type="Button" parent="GridContainer"]
+[node name="play" type="Button" parent="Menu/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Play"
 
-[node name="settings" type="Button" parent="GridContainer"]
+[node name="settings" type="Button" parent="Menu/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
 
-[node name="credits" type="Button" parent="GridContainer"]
+[node name="credits" type="Button" parent="Menu/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Credits"
 
-[node name="exit" type="Button" parent="GridContainer"]
+[node name="exit" type="Button" parent="Menu/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
-[connection signal="pressed" from="GridContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="GridContainer/settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="GridContainer/credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="GridContainer/exit" to="." method="_on_exit_pressed"]
+[node name="Wildbranding" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Wildbranding"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -19.0
+offset_right = 1183.0
+offset_bottom = 779.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.133333, 0.25098, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="Wildbranding"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.0
+offset_top = -120.0
+offset_right = 1080.0
+offset_bottom = 880.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fleal")
+
+[node name="PilsnerPals" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PilsnerPals"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -599.0
+offset_top = -398.0
+offset_right = 599.0
+offset_bottom = 398.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PilsnerPals"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.5
+offset_top = -164.5
+offset_right = 154.5
+offset_bottom = 164.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ruv71")
+
+[connection signal="pressed" from="Menu/GridContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/GridContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Menu/GridContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Menu/GridContainer/exit" to="." method="_on_exit_pressed"]
