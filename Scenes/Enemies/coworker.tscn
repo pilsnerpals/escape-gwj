@@ -1,26 +1,80 @@
-[gd_scene load_steps=11 format=3 uid="uid://dy2ktv3gslcip"]
+[gd_scene load_steps=19 format=3 uid="uid://dy2ktv3gslcip"]
 
-[ext_resource type="Texture2D" uid="uid://b0dhdri6pn3ki" path="res://Assets/icon.svg" id="1_n15nj"]
 [ext_resource type="Script" path="res://Scenes/Enemies/coworker.gd" id="1_tnv07"]
+[ext_resource type="Texture2D" uid="uid://d0a7smlhvogcx" path="res://Assets/Enemy/adventurer_walk1.png" id="2_cmq0j"]
+[ext_resource type="Texture2D" uid="uid://cjvpqn7674kgv" path="res://Assets/Enemy/adventurer_walk2.png" id="3_1f0kv"]
 [ext_resource type="AudioStream" uid="uid://dy4ygvn0pnd4y" path="res://Assets/Sound/Enemies/boss_look.wav" id="4_r4nkg"]
+[ext_resource type="Texture2D" uid="uid://dm1d13mjqq7qh" path="res://Assets/Enemy/player_walk1.png" id="4_xrjyc"]
+[ext_resource type="Texture2D" uid="uid://b4utkmlf8dn3p" path="res://Assets/Enemy/player_walk2.png" id="5_28u5x"]
 [ext_resource type="AudioStream" uid="uid://b6fsklcsiuq07" path="res://Assets/Sound/Enemies/girlscout.wav" id="5_ymoij"]
+[ext_resource type="Texture2D" uid="uid://lvfvdgftybh0" path="res://Assets/Enemy/soldier_walk1.png" id="6_1oksg"]
 [ext_resource type="AudioStream" uid="uid://c42q71gs8h83m" path="res://Assets/Sound/Enemies/hardly_workin.wav" id="6_8o8iw"]
 [ext_resource type="AudioStream" uid="uid://d06hljrfkgke6" path="res://Assets/Sound/Enemies/kids.wav" id="7_a222s"]
+[ext_resource type="Texture2D" uid="uid://cb3x1w6lux70" path="res://Assets/Enemy/soldier_walk2.png" id="7_bywnl"]
+[ext_resource type="Texture2D" uid="uid://bu15xfdcwwfvy" path="res://Assets/Enemy/female_walk1.png" id="8_mtjw2"]
 [ext_resource type="AudioStream" uid="uid://dtwscw44m5od7" path="res://Assets/Sound/Enemies/ludicrous.wav" id="8_vgpwq"]
+[ext_resource type="Texture2D" uid="uid://crlphv4ikxmjw" path="res://Assets/Enemy/female_walk2.png" id="9_gd71w"]
 [ext_resource type="AudioStream" uid="uid://wskflllbviqw" path="res://Assets/Sound/Enemies/memo.wav" id="9_xvntf"]
 [ext_resource type="AudioStream" uid="uid://drbg88x2xfj44" path="res://Assets/Sound/Enemies/mondays.wav" id="10_5q8gm"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_gron0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cmq0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1f0kv")
+}],
+"loop": true,
+"name": &"man1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xrjyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_28u5x")
+}],
+"loop": true,
+"name": &"man2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1oksg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bywnl")
+}],
+"loop": true,
+"name": &"man3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_mtjw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gd71w")
+}],
+"loop": true,
+"name": &"woman1",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0er7a"]
-size = Vector2(36, 80)
+size = Vector2(54, 67)
 
 [node name="CoWorker" type="Area2D" groups=["coworkers"]]
 collision_layer = 4
 script = ExtResource("1_tnv07")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.285156, 0.632813)
-texture = ExtResource("1_n15nj")
-metadata/_edit_group_ = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_gron0")
+animation = &"woman1"
 
 [node name="Raycasts" type="Node2D" parent="."]
 
@@ -40,6 +94,7 @@ target_position = Vector2(106, -106)
 target_position = Vector2(150, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 9.5)
 shape = SubResource("RectangleShape2D_0er7a")
 
 [node name="taunt1" type="AudioStreamPlayer" parent="."]
