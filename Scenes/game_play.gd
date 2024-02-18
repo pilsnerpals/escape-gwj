@@ -2,6 +2,7 @@ extends Node
 
 
 @onready var bgm = [$bgm1, $bgm2, $bgm3]
+var maxLevel = 1
 var bgm_current = 0
 @onready var coffees
 @onready var coworkers
@@ -32,21 +33,25 @@ func handleLevelLoad(levelNum: int):
 	
 func _onExitReached(level: int):
 	if canSwitch:
-		%LevelSwitchTimer.start()
-		canSwitch = false
-		%Player.position = Vector2(57, 721)
-		currentLevel += 1;
-		#load new scene
-		var level_path = "res://Scenes/Level" + str(currentLevel) + ".tscn"
-		var level_scene = load(level_path)
-		var level_instance = level_scene.instantiate()
-		#this is temporary
-		
-		add_child(level_instance)
-		#unload old scene
-		currentLevelScene.queue_free()
-		currentLevelScene = level_scene
-		handleLevelLoad(currentLevel)
+		if currentLevel < maxLevel:
+			%LevelSwitchTimer.start()
+			canSwitch = false
+			%Player.position = Vector2(57, 721)
+			currentLevel += 1;
+			#load new scene
+			var level_path = "res://Scenes/Level" + str(currentLevel) + ".tscn"
+			var level_scene = load(level_path)
+			var level_instance = level_scene.instantiate()
+			#this is temporary
+			
+			add_child(level_instance)
+			#unload old scene
+			currentLevelScene.queue_free()
+			currentLevelScene = level_scene
+			handleLevelLoad(currentLevel)
+		else:
+			get_tree().change_scene_to_file("res://Scenes/Menus/GameComplete.tscn")
+			pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

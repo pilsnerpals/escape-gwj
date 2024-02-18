@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcplgry3oau3w"]
+[gd_scene load_steps=10 format=3 uid="uid://bcplgry3oau3w"]
 
 [ext_resource type="Texture2D" uid="uid://xgmvbbg2dkgw" path="res://Assets/platformer-tileset-template.png" id="1_35obo"]
 [ext_resource type="Texture2D" uid="uid://baq6k86pdgrg4" path="res://Assets/sky.png" id="2_ofiww"]
 [ext_resource type="Texture2D" uid="uid://dc811qfn1p8b8" path="res://Assets/city.png" id="3_ojboh"]
 [ext_resource type="Texture2D" uid="uid://blnuyn34hixvr" path="res://Assets/Office_1.png" id="4_jepg8"]
-[ext_resource type="Texture2D" uid="uid://uvefioi1x3tw" path="res://Assets/stairs.png" id="5_gqjlw"]
 [ext_resource type="PackedScene" uid="uid://dy2ktv3gslcip" path="res://Scenes/Enemies/coworker.tscn" id="6_r5aj2"]
 [ext_resource type="PackedScene" uid="uid://1hwv4xca62y5" path="res://Scenes/Collectible/Coffee.tscn" id="7_hc1ff"]
+[ext_resource type="PackedScene" uid="uid://djnaetxsfq07r" path="res://Scenes/exit.tscn" id="7_k1ey1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgbn6"]
 texture = ExtResource("1_35obo")
@@ -1461,9 +1461,6 @@ texture = ExtResource("1_35obo")
 physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_vgbn6")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnyvo"]
-size = Vector2(150, 153)
-
 [node name="Level1" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1502,20 +1499,6 @@ texture = ExtResource("4_jepg8")
 centered = false
 
 [node name="Spawn Location2" type="Node2D" parent="."]
-
-[node name="Exit" type="RigidBody2D" parent="."]
-position = Vector2(15038, 703)
-gravity_scale = 0.0
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-position = Vector2(3, 3.5)
-shape = SubResource("RectangleShape2D_vnyvo")
-
-[node name="Sprite2D" type="Sprite2D" parent="Exit"]
-rotation = 1.5708
-scale = Vector2(5, 5)
-texture = ExtResource("5_gqjlw")
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -1661,3 +1644,6 @@ position = Vector2(2090, 650)
 
 [node name="Coffee5" parent="Coffees" instance=ExtResource("7_hc1ff")]
 position = Vector2(1125, 533)
+
+[node name="Exit" parent="." instance=ExtResource("7_k1ey1")]
+position = Vector2(15032, 697)
