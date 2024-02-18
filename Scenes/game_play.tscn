@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://d3n80kk2ls6i7" path="res://Assets/Sound/BGM/Don'tStop.mp3" id="5_mk8rm"]
 [ext_resource type="AudioStream" uid="uid://bsxqi5i8g60ck" path="res://Assets/Sound/BGM/ThoughtBot.mp3" id="6_34u7a"]
 [ext_resource type="PackedScene" uid="uid://c215ytjk6ucnr" path="res://Scenes/Level0.tscn" id="6_jxg7l"]
-[ext_resource type="PackedScene" uid="uid://46bnmi8lm3xn" path="res://Scenes/progress_bar.tscn" id="7_poj0y"]
+[ext_resource type="PackedScene" path="res://Scenes/progress_bar.tscn" id="7_poj0y"]
 
 [node name="GamePlay" type="Node"]
 script = ExtResource("1_ymad7")
