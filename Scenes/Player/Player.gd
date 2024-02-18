@@ -53,7 +53,7 @@ func _physics_process(delta):
 
 
 func _on_coffee_collected():
-	print("got a coffe speeding up")
+	print("got a coffee speeding up")
 	var newCoffeeIndex = randi_range(0,coffees.size()-1)
 	while newCoffeeIndex == coffee_index:
 		newCoffeeIndex = randi_range(0,coffees.size()-1)
