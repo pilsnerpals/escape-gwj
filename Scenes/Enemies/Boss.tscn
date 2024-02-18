@@ -1,22 +1,75 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxtqedism2nlo"]
+[gd_scene load_steps=10 format=3 uid="uid://dxtqedism2nlo"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/Boss.gd" id="1_br36i"]
-[ext_resource type="Texture2D" uid="uid://b0dhdri6pn3ki" path="res://Assets/icon.svg" id="2_1pphp"]
+[ext_resource type="Texture2D" uid="uid://xhfdevl3f82c" path="res://Assets/Enemy/boss.png" id="2_2nv5h"]
+[ext_resource type="AudioStream" uid="uid://dpjwn80tfafqn" path="res://Assets/Sound/Enemies/Boss1.mp3" id="3_aqeuj"]
+[ext_resource type="AudioStream" uid="uid://wuwrueoi0hxo" path="res://Assets/Sound/Enemies/Boss2.mp3" id="4_x555f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cufwp"]
-size = Vector2(222, 738)
+size = Vector2(296, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfb62"]
+atlas = ExtResource("2_2nv5h")
+region = Rect2(0, 0, 310, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyjo4"]
+atlas = ExtResource("2_2nv5h")
+region = Rect2(310, 0, 310, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntdto"]
+atlas = ExtResource("2_2nv5h")
+region = Rect2(620, 0, 310, 588)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1am06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfb62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyjo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntdto")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="Boss" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_br36i")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(26, 306)
-scale = Vector2(1.78125, 5.75)
-texture = ExtResource("2_1pphp")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(27, 307)
+position = Vector2(-9, 2)
 shape = SubResource("RectangleShape2D_cufwp")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1am06")
+autoplay = "default"
+
+[node name="bosstaunt1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aqeuj")
+volume_db = 10.0
+
+[node name="taunt1Label" type="Label" parent="bosstaunt1"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="bosstaunt2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x555f")
+volume_db = 10.0
+
+[node name="taunt2Label" type="Label" parent="bosstaunt2"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="tauntTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="tauntTimer" to="." method="_on_taunt_timer_timeout"]
