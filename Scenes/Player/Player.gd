@@ -20,9 +20,6 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
-	speedDebug.text = "speed: %s" % max_speed
-	velDebug.text = "vel: %s" % velocity.x
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -56,12 +53,10 @@ func _physics_process(delta):
 
 
 func _on_coffee_collected():
-	print("got a coffee speeding up")
 	var newCoffeeIndex = randi_range(0,coffees.size()-1)
 	while newCoffeeIndex == coffee_index:
 		newCoffeeIndex = randi_range(0,coffees.size()-1)
 	coffee_index = newCoffeeIndex
-	print(coffee_index)
 	coffees[coffee_index].play()
 	max_speed += speed_increase
 	pass # Replace with function body.

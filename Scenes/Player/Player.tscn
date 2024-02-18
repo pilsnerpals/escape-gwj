@@ -317,20 +317,6 @@ sprite_frames = SubResource("SpriteFrames_lam28")
 animation = &"jump"
 autoplay = "idle"
 
-[node name="SpeedDebug" type="Label" parent="."]
-offset_left = -48.0
-offset_top = -92.0
-offset_right = 48.0
-offset_bottom = -69.0
-text = "s"
-
-[node name="VelocityDebug" type="Label" parent="."]
-offset_left = -48.0
-offset_top = -122.0
-offset_right = 48.0
-offset_bottom = -99.0
-text = "v"
-
 [node name="coffee1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_cf840")
 
