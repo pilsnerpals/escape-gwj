@@ -1,16 +1,15 @@
 [gd_scene load_steps=10 format=3 uid="uid://c215ytjk6ucnr"]
 
-
 [ext_resource type="Texture2D" uid="uid://xgmvbbg2dkgw" path="res://Assets/platformer-tileset-template.png" id="1_ryuw3"]
-[ext_resource type="PackedScene" uid="uid://cmxcks0jusqyx" path="res://Scenes/exit.tscn" id="2_6w48f"]
+[ext_resource type="PackedScene" uid="uid://djnaetxsfq07r" path="res://Scenes/exit.tscn" id="2_6w48f"]
 [ext_resource type="Texture2D" uid="uid://baq6k86pdgrg4" path="res://Assets/sky.png" id="3_4eo77"]
 [ext_resource type="Texture2D" uid="uid://dc811qfn1p8b8" path="res://Assets/city.png" id="4_vwyt0"]
 [ext_resource type="Texture2D" uid="uid://blnuyn34hixvr" path="res://Assets/Office_1.png" id="5_yrpkn"]
 [ext_resource type="PackedScene" uid="uid://dy2ktv3gslcip" path="res://Scenes/Enemies/coworker.tscn" id="6_u4j2h"]
 [ext_resource type="PackedScene" uid="uid://1hwv4xca62y5" path="res://Scenes/Collectible/Coffee.tscn" id="7_ox83d"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kxcso"]
-texture = ExtResource("1_iixcf")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgbn6"]
+texture = ExtResource("1_ryuw3")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -1460,7 +1459,7 @@ texture = ExtResource("1_iixcf")
 
 [sub_resource type="TileSet" id="TileSet_jsf6t"]
 physics_layer_0/collision_layer = 16
-sources/0 = SubResource("TileSetAtlasSource_kxcso")
+sources/0 = SubResource("TileSetAtlasSource_vgbn6")
 
 [node name="Level0" type="Node"]
 
