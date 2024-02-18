@@ -1535,7 +1535,7 @@ position = Vector2(1238, 741)
 position = Vector2(3816, 735)
 
 [node name="CoWorker8" parent="Enemies" instance=ExtResource("6_r5aj2")]
-position = Vector2(5756, 572)
+position = Vector2(5251, 467)
 
 [node name="CoWorker9" parent="Enemies" instance=ExtResource("6_r5aj2")]
 position = Vector2(5726, 262)
