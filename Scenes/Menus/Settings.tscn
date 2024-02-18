@@ -12,20 +12,135 @@ grow_vertical = 2
 script = ExtResource("1_pyshn")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 442.0
-offset_top = 25.0
-offset_right = 650.0
-offset_bottom = 70.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.0
+offset_top = 38.0
+offset_right = 104.0
+offset_bottom = 83.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Settings Page"
 
 [node name="back" type="Button" parent="."]
-layout_mode = 0
-offset_left = 491.0
-offset_top = 583.0
-offset_right = 665.0
-offset_bottom = 620.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -136.0
+offset_right = 87.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Back"
 
+[node name="Actions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -160.5
+offset_right = 144.0
+offset_bottom = 160.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Key Bindings" type="Label" parent="Actions"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.5
+offset_right = 49.5
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.5
+text = "Key Bindings"
+
+[node name="GridContainer" type="GridContainer" parent="Actions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.5
+offset_top = -106.0
+offset_right = 240.5
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Move Right" type="Label" parent="Actions/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Right"
+horizontal_alignment = 1
+
+[node name="Move Right Binding" type="Button" parent="Actions/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Move Left" type="Label" parent="Actions/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Left"
+horizontal_alignment = 1
+
+[node name="Move Left Binding" type="Button" parent="Actions/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Jump" type="Label" parent="Actions/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jump
+"
+horizontal_alignment = 1
+
+[node name="Jump Binding" type="Button" parent="Actions/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Popup" type="Popup" parent="."]
+size = Vector2i(1200, 800)
+transparent = true
+content_scale_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.54902)
+
+[node name="Label" type="Label" parent="Popup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -11.5
+offset_right = 82.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Listening for Input ...."
+horizontal_alignment = 1
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Actions/GridContainer/Move Right Binding" to="." method="_on_move_right_binding_pressed"]
+[connection signal="pressed" from="Actions/GridContainer/Move Left Binding" to="." method="_on_move_left_binding_pressed"]
+[connection signal="pressed" from="Actions/GridContainer/Jump Binding" to="." method="_on_jump_binding_pressed"]
