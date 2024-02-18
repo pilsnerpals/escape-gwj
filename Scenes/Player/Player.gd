@@ -10,8 +10,6 @@ extends CharacterBody2D
 @export var friction = 30
 
 @onready var playerSprite = $AnimatedSprite2D
-@onready var speedDebug = $"SpeedDebug"
-@onready var velDebug = $"VelocityDebug"
 @onready var coffees = [$coffee1, $coffee2, $coffee3]
 @onready var jcd_timer = $jumpsoundCD
 @onready var coffee_index = randi_range(0,coffees.size()-1)
@@ -68,5 +66,8 @@ func _on_co_worker_player_hit():
 	pass # Replace with function body.
 
 func _on_boss_player_hit():
-	get_tree().change_scene_to_file("res://Scenes/Menus/GameOver.tscn")
+	call_deferred("endGame")
 	pass # Replace with function body.
+
+func endGame():
+	get_tree().change_scene_to_file("res://Scenes/Menus/GameOver.tscn")
