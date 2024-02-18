@@ -17,10 +17,21 @@ var velocity: Vector2
 @onready var rare_taunts = [$rare_taunt1]
 @onready var rays = $Raycasts.get_children()
 @onready var taunt_cd = 0
+@onready var sprite = $AnimatedSprite2D
 
 func init():
 	spawnPos = position
 	wander_target = get_wander_target()
+	var s = randi_range(1, 4)
+	if s == 1:
+		sprite.play("man1")
+	elif s == 2:
+		sprite.play("man2")
+	elif s == 3:
+		sprite.play("man3")
+	else:
+		sprite.play("woman1")
+	print(sprite.is_playing())
 	pass
 
 func get_wander_target() -> Vector2:
@@ -51,7 +62,9 @@ func _physics_process(delta):
 	var dir = 0
 	if (wander_target.x < distance_from_spawn):
 		dir = -1
+		sprite.flip_h = 1
 	elif(wander_target.x > distance_from_spawn):
+		sprite.flip_h = 0
 		dir = 1
 	else:
 		dir = 0

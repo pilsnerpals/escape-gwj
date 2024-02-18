@@ -21,3 +21,7 @@ func _on_coffee_collected():
 
 func _on_taunt_timer_timeout():
 	taunts[taunt_index].play()
+	if taunt_index == taunts.size() -1:
+		taunt_index = 0
+	else:
+		taunt_index += 1

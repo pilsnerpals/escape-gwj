@@ -22,6 +22,8 @@ remote_path = NodePath("../../PlayerCam")
 [node name="PlayerCam" type="Camera2D" parent="."]
 position = Vector2(500, 721)
 offset = Vector2(200, -320)
+limit_top = 320
+limit_bottom = 1200
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
@@ -62,7 +64,7 @@ one_shot = true
 
 [node name="Boss" parent="." instance=ExtResource("8_ccqta")]
 unique_name_in_owner = true
-position = Vector2(171, 499)
+position = Vector2(-4, 417)
 
 [connection signal="finished" from="bgm1" to="." method="_on_bgm_1_finished"]
 [connection signal="finished" from="bgm2" to="." method="_on_bgm_2_finished"]
