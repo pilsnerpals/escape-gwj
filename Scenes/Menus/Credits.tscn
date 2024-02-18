@@ -56,7 +56,10 @@ offset_bottom = -194.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "Creative Commons Music by Jason Shaw on Audionautix.com"
+text = "Creative Commons Music by Jason Shaw on Audionautix.com
+
+Player Sprite by Franco Giachetti is licensed under a 
+Creative Commons Attribution 3.0 License"
 
 [node name="back" type="Button" parent="."]
 layout_mode = 1

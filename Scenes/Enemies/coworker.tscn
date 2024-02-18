@@ -99,24 +99,30 @@ shape = SubResource("RectangleShape2D_0er7a")
 
 [node name="taunt1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_r4nkg")
+volume_db = 5.0
 
 [node name="taunt2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ymoij")
+volume_db = -10.0
 
 [node name="taunt3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_8o8iw")
 
 [node name="taunt4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_a222s")
+volume_db = -3.0
 
 [node name="rare_taunt1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_vgpwq")
+volume_db = -8.0
 
 [node name="taunt6" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_xvntf")
+volume_db = -5.0
 
 [node name="taunt7" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_5q8gm")
+volume_db = -12.0
 
 [node name="tauntCD" type="Timer" parent="."]
 wait_time = 6.0

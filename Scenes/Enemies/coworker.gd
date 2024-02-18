@@ -31,7 +31,6 @@ func init():
 		sprite.play("man3")
 	else:
 		sprite.play("woman1")
-	print(sprite.is_playing())
 	pass
 
 func get_wander_target() -> Vector2:
@@ -41,7 +40,6 @@ func get_wander_target() -> Vector2:
 	
 	var dis = randf_range(WANDER_MAX_DISTANCE * -1, WANDER_MAX_DISTANCE)
 	var s =  randf_range(MIN_SPEED, MAX_SPEED)
-	print("starting to wander dist:%s speed:%s" % [dis, s])
 	return Vector2(dis, s)
 
 func chase():
@@ -72,7 +70,6 @@ func _physics_process(delta):
 		
 	if (dir == 0 || dir != prevDir):
 		# we hit the target
-		print("hit the target")
 		velocity.x = move_toward(velocity.x, 0, wander_target.y)
 		#pause for some time maybe then pick a new target(how to deal with this)
 		wander_target = get_wander_target()
