@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7iil5ubq5rl3"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Credits.gd" id="1_udquo"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_udquo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_top = 34.0
+offset_right = 55.0
+offset_bottom = 79.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 325.0
+offset_top = -282.0
+offset_right = 875.0
+offset_bottom = -93.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Created by Pilsner Pals Productions
+@blakkout47
+@mommyj
+@igelkottar"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -475.0
+offset_top = -239.0
+offset_right = 475.0
+offset_bottom = -194.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Creative Commons Music by Jason Shaw on Audionautix.com"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -136.0
+offset_right = 87.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

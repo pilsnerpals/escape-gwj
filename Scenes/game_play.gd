@@ -19,7 +19,7 @@ func _ready():
 
 func handleLevelLoad(levelNum: int):
 	coffees = get_tree().get_nodes_in_group("Coffees")
-	coworkers = get_tree().get_nodes_in_group("Coworkers")
+	coworkers = get_tree().get_nodes_in_group("coworkers")
 	get_tree().call_group("coworkers", "init")
 	for c in coffees:
 		c.collected.connect(%Player._on_coffee_collected)

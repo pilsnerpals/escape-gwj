@@ -15,7 +15,8 @@ script = ExtResource("1_c2el7")
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1200.0
-offset_bottom = 648.0
+offset_bottom = 800.0
+
 texture = ExtResource("1_xu1s8")
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -32,7 +33,7 @@ offset_right = 441.392
 offset_bottom = -20.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-columns = 3
+columns = 4
 
 [node name="play" type="Button" parent="GridContainer"]
 layout_mode = 2
@@ -44,6 +45,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
 
+[node name="credits" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Credits"
+
 [node name="exit" type="Button" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -51,4 +57,5 @@ text = "Exit"
 
 [connection signal="pressed" from="GridContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="GridContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="GridContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="GridContainer/exit" to="." method="_on_exit_pressed"]
