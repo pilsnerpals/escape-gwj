@@ -24,11 +24,13 @@ func handleLevelLoad(levelNum: int):
 	get_tree().call_group("coworkers", "init")
 	for c in coffees:
 		c.collected.connect(%Player._on_coffee_collected)
+		c.collected.connect(%Boss._on_coffee_collected)
 	for w in coworkers:
 		w.player_hit.connect(%Player._on_co_worker_player_hit)
 	var exits = get_tree().get_nodes_in_group("Exit")
 	for e in exits:
 		e.player_exited.connect(_onExitReached)
+	
 	%ProgressBar.setMaxLength(levelLengths[levelNum])
 	
 func _onExitReached(level: int):
@@ -36,7 +38,9 @@ func _onExitReached(level: int):
 		if currentLevel < maxLevel:
 			%LevelSwitchTimer.start()
 			canSwitch = false
-			%Player.position = Vector2(57, 721)
+			%Player.position = Vector2(500, 721)
+			%Boss.position = Vector2(171, 499)
+			
 			currentLevel += 1;
 			#load new scene
 			var level_path = "res://Scenes/Level" + str(currentLevel) + ".tscn"
@@ -56,7 +60,7 @@ func _onExitReached(level: int):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	%ProgressBar.setPlayerPos(%Player.position.x)
-	#%ProgressBar.setBossPos(%Boss.position.x)
+	%ProgressBar.setBossPos(%Boss.position.x)
 	pass
 
 

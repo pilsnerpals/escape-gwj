@@ -34,7 +34,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 15.0
+"speed": 10.0
 }]
 
 [node name="Boss" type="Area2D"]
@@ -49,6 +49,7 @@ shape = SubResource("RectangleShape2D_cufwp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1am06")
 autoplay = "default"
+frame_progress = 0.450854
 
 [node name="bosstaunt1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_aqeuj")
@@ -69,7 +70,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="tauntTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
